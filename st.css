@@ -1,0 +1,37 @@
+.fff{
+	background-color: rgba(256,256,256,0.5);
+	padding:30px;
+}
+input{
+	padding: 10px;
+	height: 10px;
+}
+body{
+	background-image: url("bg.JPG");
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+svg{
+	paddung: 30px;
+}
+.info{
+	background-color: rgba(256,256,256,0.5);
+	padding: 30px;
+}
+input{
+	padding:10px;
+	margin:10px;
+}
+button{
+	background-color:#8c9eff;
+	border-color:#304ffe;
+}
+
+svg{
+	background-color: rgba(256,256,256,0.3);
+	width:100%;
+}
+select{
+	background-color:#8c9eff;
+	border-color:#304ffe;
+}
