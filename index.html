@@ -10,37 +10,39 @@
         <link href="st.css" rel="Stylesheet" type="text/css" />
     </head>
 
-    <body onload="document.getElementsByTagName('div')[5].parentNode.removeChild(document.getElementsByTagName('div')[5]); run();">
-        <div class="fff">Add planets:
-             <span>Mass: </span>
-            <input id="mass" type="text" required/>
-             <span>Name: </span>
-            <input id="id" type="text" required/>
-             <span>x-position: </span>
-            <input id="xp" type="text" required/>
-             <span>y-position: </span>
-            <input id="yp" type="text" required/>
-             <span>Initial x velocity: </span>
-            <input id="xvl" type="text" required/>
-             <span>Initial y velocity:</span>
-            <input id="yvl" type="text" required/>
-             <span>Radius:</span>
-            <input id="rrr" type="text" required/>
-            <button onclick="addPlanet()">Add</button>
-        </div>
-        <button onclick="change_color()">Change color</button>
-        <input class="color" type="text" required/>
-        <select class="sel" name="obj"></select>
-        <button onclick="rem()">Remove the element</button>
-        <div class="info">
-            <div>x-coordinate:
-                <span id="x">?</span>
+    <body onload="document.getElementsByTagName('div')[6].parentNode.removeChild(document.getElementsByTagName('div')[6]); run();">
+        <div class="main">
+            <div class="fff">Add planets:
+                 <span>Mass: </span>
+                <input id="mass" type="text" required/>
+                 <span>Name: </span>
+                <input id="id" type="text" required/>
+                 <span>x-position: </span>
+                <input id="xp" type="text" required/>
+                 <span>y-position: </span>
+                <input id="yp" type="text" required/>
+                 <span>Initial x velocity: </span>
+                <input id="xvl" type="text" required/>
+                 <span>Initial y velocity:</span>
+                <input id="yvl" type="text" required/>
+                 <span>Radius:</span>
+                <input id="rrr" type="text" required/>
+                <button onclick="addPlanet()">Add</button>
             </div>
-            <div>y-coordinate:
-                <span id="y">?</span>
-            </div>
-            <div>Speed:
-                <span id="v">?</span>
+            <button onclick="change_color()">Change color</button>
+            <input class="color" type="text" required/>
+            <select class="sel" name="obj"></select>
+            <button onclick="rem()">Remove the element</button>
+            <div class="info">
+                <div>x-coordinate:
+                    <span id="x">?</span>
+                </div>
+                <div>y-coordinate:
+                    <span id="y">?</span>
+                </div>
+                <div>Speed:
+                    <span id="v">?</span>
+                </div>
             </div>
         </div>
         <svg id="pr" width="1000" height="1000">
