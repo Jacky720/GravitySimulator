@@ -4,6 +4,7 @@ var b = "central_body";
 var name = "#" + a;
 var planets = [a, b];
 var n;
+var accuracy;
 
 
 function xcor(ob) {
@@ -22,24 +23,6 @@ function change_color() {
 
 function cred() {
     alert("Gravity Simulator\n\nMusic - Calin Avram\nProgramming - Matei Adriel Rafael\nWebsite - Jack Moul");
-}
-
-function rem() {
-    if (planets.length == 1) {
-        alert("Sorry, we cannot remove this element because is the last element avabile. If you want to remove it, create a new element with mass 0, x velocity 0 and y velocity 0, at a y-coordinate of at more than 1000. Then, remove this element. You will still see that element in the element list, but it will be somewhere outside the screen.");
-        return 0;
-    }
-    var a = $(".sel option:selected");
-    var b = a.text();
-    for (var i = 0; i < planets.length; i++) {
-        if (planets[i] == b) {
-            //var aa = planets[i];
-            planets.splice(i, 1);
-        }
-    }
-    a.remove();
-    var aaa = "#" + b;
-    $(aaa).remove();
 }
 
 function mass(ob) {
@@ -109,6 +92,7 @@ function move(ob1, ob2) {
 }
 
 function up(ob) {
+    //console.log("Performing up() on "+ob+", accuracy is at "+accuracy); //Creates spam
     var name = "#" + ob;
     var temp;
     var mx = $(name).attr("data-mx");
@@ -138,7 +122,9 @@ function up(ob) {
 }
 
 function add(ob) {
+    console.log("Adding planet: "+ob);
     var b = "<option value=" + "'" + ob + "'" + ">" + ob + "</option>";
+    console.log("Adding "+b+" to dropdown.");
     $(".sel").append(b);
 }
 
@@ -167,7 +153,7 @@ function collide(object1, object2) {
     var vecty = (mass(object1) * $(name1).attr("data-my") + mass(object2) * $(name2).attr("data-my")) / newmass;
     //and finally the name of the new element
     //i made a variable for it because i will use it multiple times
-    var newname = object1 + object2;
+    var newname = object1+" "+object2;
     //add the new element
     //the container
     var g = document.createElementNS('http://www.w3.org/2000/svg', 'g')
@@ -199,24 +185,36 @@ function collide(object1, object2) {
     elem.appendChild(g);
     planets[planets.length] = newname;
     add(planets[planets.length - 1]);
-    removeobject(object1);
-    removeobject(object2);
+    removeObject(object1);
+    removeObject(object2);
 }
 
-function removeobject(name) {
-    var a = $("[value=name]");
+function removeObject(name) {
+    var a = $("[value="+name+"]");
     for (var i = 0; i < planets.length; i++) {
         if (planets[i] == name) {
             planets.splice(i, 1);
         }
     }
     a.remove();
-    var newname = "#" + name;
-    $(newname).remove();
+    $("#" + name).remove();
 }
 
-for (var i = 0; i < planets.length; i++) {
-    add(planets[i]);
+function rem() {
+    if (planets.length == 1) {
+        alert("Sorry, we cannot remove this element because is the last element avabile. If you want to remove it, create a new element with mass 0, x velocity 0 and y velocity 0, at a y-coordinate of at more than 1000. Then, remove this element. You will still see that element in the element list, but it will be somewhere outside the screen.");
+        return 0;
+    }
+    var a = $(".sel option:selected");
+    var b = a.text();
+    for (var i = 0; i < planets.length; i++) {
+        if (planets[i] == b) {
+            //var aa = planets[i];
+            planets.splice(i, 1);
+        }
+    }
+    a.remove();
+    $("#" + b).remove();
 }
 
 function mn() {
@@ -246,10 +244,12 @@ function run() {
         mn();
     }, y);
     
-    var accuracy = parseInt(prompt("Input accuracy:"));
+    accuracy = parseInt(prompt("Input accuracy:"));
     while (!(accuracy > 0)) {
         accuracy = parseInt(prompt("Either that was not an integer or it was negative. Please try again:"));
     }
+    
+    for (var i = 0; i < planets.length; i++) {add(planets[i]);}
 }
 
 //run(); //Now used in onload tag for <body>, so script can be loaded in <head>
