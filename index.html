@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>gravity simulator</title>
-	<!-- jquerry -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<link href="st.css" rel="Stylesheet" type="text/css"/>
-</head>
-<body>
-	<!--
-	<audio id="adr" loop autoplay="true">
-		<source src="Angel_Wrath.ogg" type="audio/ogg">
-	</audio>
-	<iframe width="500" height="281" src="https://www.youtu.com/embed/AU6PNBipY4U
-autoplay=1" frameborder="0" allowfullscreen></iframe>-->
-	<iframe width="560" height="315" hidden = "true" src="https://www.youtube.com/embed/AU6PNBipY4U?rel=0&amp;controls=0&amp;showinfo=0?rel=0&autoplay=1&loop=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-	<div class="fff" >ADD planets:
-		mass
-		<input id = "mass" type="text" required/>
-		name:
-		<input id = "id" type="text" required/>
-		xposition:
-		<input id = "xp" type="text" required/>
-		yposition:
-		<input id = "yp" type="text" required/>
-		initial x velocity
-		<input id = "xvl" type="text" required/>
-		initial y velocity
-		<input id = "yvl" type="text" required/>
-		radius:
-		<input id = "rrr" type="text" required/>
-		<button onclick="addd()">Add</button>
-	</div>
-	<button onclick="cred()">Credits</button>
-	<button onclick="change_color()">Change color</button><input class = "color" type="text" required/>
-	<select class="sel"name="obj" />
-	</select>
-	<button onclick="rem()">Remove the element</button>
-	<div class="info">
-		<div>xcor:<p id="x">?</p>
-		</div>
-		<div>ycor:<p id="y">?</p>
-		</div>
-		<div>speed:<p id = "v">?</p>
-		</div>
-	</div>
-	<svg id = "pr" width = "1000" height = "1000">
-		<circle id = "central_body" cx = "200" cy = "300" r = "20" data-mass=10000 data-mx=0 data-my=0 stroke="black"/>
-		<circle id = "orbit_body" cx = "200" cy = "200" r = "10" data-mass=0 data-mx=10 data-my=0 stroke="black" fill ="yellow"/>
-	</svg>
-	<!--Scriptul pentru functii-->
-	<script src="script-func.js"></script>
-</body>
+
+    <head>
+        <title>Gravity Simulator</title>
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--Scriptul pentru functii-->
+        <script src="script-func.js"></script>
+        <link href="st.css" rel="Stylesheet" type="text/css" />
+    </head>
+
+    <body onload="document.getElementsByTagName('div')[6].parentNode.removeChild(document.getElementsByTagName('div')[6]); run();">
+        <div class="main">
+            <div class="fff">Add planets:
+                 <span>Mass: </span>
+                <input id="mass" type="text" required/>
+                 <span>Name: </span>
+                <input id="id" type="text" required/>
+                 <span>x-position: </span>
+                <input id="xp" type="text" required/>
+                 <span>y-position: </span>
+                <input id="yp" type="text" required/>
+                 <span>Initial x velocity: </span>
+                <input id="xvl" type="text" required/>
+                 <span>Initial y velocity:</span>
+                <input id="yvl" type="text" required/>
+                 <span>Radius:</span>
+                <input id="rrr" type="text" required/>
+                <button onclick="addPlanet()">Add</button>
+            </div>
+            <button onclick="change_color()">Change color</button>
+            <input class="color" type="text" required/>
+            <select class="sel" name="obj"></select>
+            <button onclick="rem()">Remove the element</button>
+            <div class="info">
+                <div>x-coordinate:
+                    <span id="x">?</span>
+                </div>
+                <div>y-coordinate:
+                    <span id="y">?</span>
+                </div>
+                <div>Speed:
+                    <span id="v">?</span>
+                </div>
+            </div>
+        </div>
+        <svg id="pr" width="1000" height="1000">
+            <circle id="central_body" cx="200" cy="300" r="20" data-mass=10000 data-mx=0 data-my=0 stroke="black" />
+            <circle id="orbit_body" cx="200" cy="200" r="10" data-mass=0 data-mx=10 data-my=0 stroke="black" fill="yellow" />
+        </svg>
+        <button onclick="cred()" class="footer">Credits</button>
+        <audio loop autoplay src="Angel_Wrath.ogg"></audio>
+    </body>
+
 </html>
